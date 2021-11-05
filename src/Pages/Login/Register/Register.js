@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import login from '../../../images/login.png';
 
-const Login = () => {
+const Register = () => {
     const [loginData, setLoginData] = useState({});
 
     const handleOnChnage = e => {
@@ -15,14 +15,18 @@ const Login = () => {
     }
 
     const handleSubmit = e => {
-        alert('hello')
+        if (loginData.password !== loginData.password2) {
+            alert('password did not matched');
+            return;
+        }
         e.preventDefault();
     }
+
     return (
         <Container>
             <Grid container spacing={2}>
                 <Grid sx={{ mt: 8 }} item xs={12} md={6}>
-                    <Typography variant="body1" gutterBottom>Login</Typography>
+                    <Typography variant="body1" gutterBottom>Register</Typography>
                     <form onSubmit={handleSubmit}>
                         <TextField
                             sx={{ width: '75%', m: 1 }}
@@ -40,12 +44,20 @@ const Login = () => {
                             onChange={handleOnChnage}
                             type="password"
                             variant="standard" />
-                        <Button sx={{ width: '75%', m: 1 }} variant="contained" type="submit">Login</Button>
+                        <TextField
+                            sx={{ width: '75%', m: 1 }}
+                            id="standard-basic"
+                            label="Re-Type Password"
+                            name="password2"
+                            onChange={handleOnChnage}
+                            type="password"
+                            variant="standard" />
+                        <Button sx={{ width: '75%', m: 1 }} variant="contained" type="submit">Register</Button>
 
                         <NavLink
                             style={{ textDecoration: 'none' }}
-                            to="/register">
-                            <Button variant="text">New user? Please Register</Button>
+                            to="/login">
+                            <Button variant="text">Already Register? Please Login</Button>
                         </NavLink>
                     </form>
                 </Grid>
@@ -57,4 +69,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
