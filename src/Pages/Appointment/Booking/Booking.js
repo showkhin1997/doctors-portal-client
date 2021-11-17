@@ -7,7 +7,7 @@ const Booking = ({ booking, date, setBookingSuccessfull }) => {
     const handleBookingOpen = () => setOpenBokking(true);
     const handleBookingClose = () => setOpenBokking(false);
 
-    const { name, time, space } = booking
+    const { name, time, space, price } = booking;
 
     return (
         <>
@@ -21,6 +21,9 @@ const Booking = ({ booking, date, setBookingSuccessfull }) => {
                     </Typography>
                     <Typography variant="caption" display="block" gutterBottom>
                         {space} SPACING AVAILABLE
+                    </Typography>
+                    <Typography variant="caption" display="block" gutterBottom>
+                        Price: ${price}
                     </Typography>
                     <Button onClick={handleBookingOpen} variant="contained">BOOK APPOINTMENT</Button>
                 </Paper>

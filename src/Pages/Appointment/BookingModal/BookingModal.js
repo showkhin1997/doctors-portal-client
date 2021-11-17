@@ -22,7 +22,7 @@ const style = {
 
 const BookingModal = ({ openBokking, handleBookingClose, booking, date, setBookingSuccessfull }) => {
 
-    const { name, time } = booking;
+    const { name, time, price } = booking;
     const { user } = useAuth();
 
     const initialInfo = { name: user.displayName, email: user.email, phone: '' }
@@ -33,11 +33,12 @@ const BookingModal = ({ openBokking, handleBookingClose, booking, date, setBooki
         const appointment = {
             ...bookingInfo,
             time,
+            price,
             serviceName: name,
             date: date.toLocaleDateString()
         }
 
-        fetch('https://fast-taiga-40321.herokuapp.com/appointments', {
+        fetch('http://localhost:5000/appointments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

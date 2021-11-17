@@ -13,7 +13,7 @@ const MakeAdmin = () => {
 
     const handleAdminForm = e => {
         const user = { email }
-        fetch('https://fast-taiga-40321.herokuapp.com/users/admin', {
+        fetch('http://localhost:5000/users/admin', {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer  ${token}`,
