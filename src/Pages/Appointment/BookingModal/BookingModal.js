@@ -37,7 +37,7 @@ const BookingModal = ({ openBokking, handleBookingClose, booking, date, setBooki
             date: date.toLocaleDateString()
         }
 
-        fetch('http://localhost:5000/appointments', {
+        fetch('https://fast-taiga-40321.herokuapp.com/appointments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
