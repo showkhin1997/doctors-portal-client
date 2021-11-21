@@ -1,12 +1,12 @@
 import { Button, Container, Grid, TextField, Typography, CircularProgress, Alert } from '@mui/material';
 import React, { useState } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import login from '../../../images/login.png';
 import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const { registerUser, isLoading, user, authError } = useAuth();
 
@@ -23,7 +23,7 @@ const Register = () => {
             alert('password did not matched');
             return;
         }
-        registerUser(loginData.email, loginData.password, loginData.name, history)
+        registerUser(loginData.email, loginData.password, loginData.name, navigate)
         e.preventDefault();
     }
 
