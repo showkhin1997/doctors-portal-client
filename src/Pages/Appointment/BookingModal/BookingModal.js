@@ -38,7 +38,7 @@ const BookingModal = ({ openBokking, handleBookingClose, booking, date, setBooki
             date: date.toLocaleDateString()
         }
 
-        fetch('http://localhost:5000/appointments', {
+        fetch('https://immense-oasis-91328.herokuapp.com/appointments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
